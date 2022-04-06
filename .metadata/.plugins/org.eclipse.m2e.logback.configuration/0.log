@@ -293,3 +293,4 @@
 2022-04-06 14:10:02,029 [Worker-15: Launching Pw3DetranApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2022-04-06 14:10:02,045 [Worker-15: Launching Pw3DetranApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-04-06 14:10:02,045 [Worker-15: Launching Pw3DetranApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-04-06 14:10:02,045 [Worker-15: Launching Pw3DetranApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Aluno\Documents\Aula\PW3\AVALIAÇAO\ANA\pw3-detran\src\test\resources
