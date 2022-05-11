@@ -4,6 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,12 +15,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-
+@Table(name="veiculo")
 
 public class Veiculo {
 	@Column (name = "idVeiculo")
 	@Id
-	private Long idVeiculo;
+	private int idVeiculo;
 	
 	@Column (name = "renavam")
 	private String renavam;
@@ -28,8 +32,9 @@ public class Veiculo {
 	private String modelo;
 	
 	@Column (name = "ano")
-	private Long ano;
+	private int ano;
 	
+	@ManyToOne
 	@JoinColumn (name = "proprietario")
 	private Pessoa proprietario;
 	

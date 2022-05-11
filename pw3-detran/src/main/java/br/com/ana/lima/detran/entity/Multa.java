@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,11 +16,12 @@ import lombok.Setter;
 @Setter
 @Entity
 
-
+@Table(name="multa")
 public class Multa {
+	
 	@Column (name = "idMulta")
 	@Id
-	private Long idVeiculo;
+	private int id;
 	
 	@Column (name = "vencimento")
 	private LocalDate vencimento;
@@ -29,9 +32,11 @@ public class Multa {
 	@Column (name = "orgao")
 	private String orgao;
 	
-	@JoinColumn (name = "pessoa")
+	@ManyToOne
+	@JoinColumn (name = "condutor")
 	private Pessoa condutor;
 	
+	@ManyToOne
 	@JoinColumn (name = "veiculo")
 	private Veiculo veiculo;
 }

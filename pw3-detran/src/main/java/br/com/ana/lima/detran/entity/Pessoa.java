@@ -12,14 +12,16 @@ import lombok.Setter;
 @Setter
 
 @Entity
-@Table(name =  "PW3_DETRAN")
+@Table(name =  "pessoa")
 public class Pessoa {
+	
 	@Column (name = "idPessoa")
 	@Id
-	private Long idPessoa;
+	private int idPessoa;
 	
 	@Column (name = "nome")
 	private String nome;
+	
 	@Column (name = "endereco")
 	private String endereco;
 	
