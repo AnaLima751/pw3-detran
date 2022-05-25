@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,18 +30,21 @@ public class pessoacontroller {
 		dados = repository.findAll();
 		return dados;
 	}
-
-	public Pessoa buscarPorId(Integer id) {
-		Pessoa tipo = new Pessoa();
-		tipo = repository.findById(id).get();
-		return tipo;
+    @GetMapping
+	public ResponseEntity <Pessoa> buscarPorId(@PathVariable Integer id) {
+		
+    	Optional<Pessoa> tipo = repository.findById(id);
+    	if (tipo.isPresent()) {
+    		ResponseEntity.noContent().build();
+    	}
+    	return ResponseEntity.ok(tipo.get());
 	}
 
 	@PostMapping
-	public void inserir(@RequestBody Pessoa pessoa) {
-		repository.save(pessoa);
+	public ResponseEntity<Pessoa> inserir(@RequestBody Pessoa pes) { 
+		repository.save(pes);
+		return ResponseEntity.ok(pes);
 	}
-
 	@PutMapping("/{idPessoa}")
 	public void atualizar(@PathVariable Integer idPessoa, @RequestBody Pessoa pessoa) {
 		boolean existe = repository.existsById(idPessoa);
